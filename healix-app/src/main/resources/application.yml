@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: healix-erp-backend
+  
+  # Database Configuration
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/healix_oltp?sslmode=disable}
+    username: ${SPRING_DATASOURCE_USERNAME:healix_srv}
+    password: ${SPRING_DATASOURCE_PASSWORD:healix_secure_pass}
+    
+    # Connection Pool Settings
+    hikari:
+      pool-name: HealixHikariPool
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      max-lifetime: 1800000
+      connection-timeout: 20000
+
+  # JPA Configurations
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: public
+        show_sql: false
+        format_sql: false
+        use_sql_comments: false
+
+  # Database Migrations
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    schemas: public
+    table: flyway_schema_history
+
+# Actuator & Observability
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: healix-erp-backend
