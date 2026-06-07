@@ -1,0 +1,20 @@
+package in.healix.persistence.domain;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
+import java.util.UUID;
+
+@MappedSuperclass
+public abstract class TenantAwareEntity extends AuditableEntity {
+
+    @Column(name = "tenant_id", nullable = false, updatable = false)
+    private UUID tenantId;
+
+    public UUID getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(UUID tenantId) {
+        this.tenantId = tenantId;
+    }
+}
