@@ -1,0 +1,56 @@
+# Compiled class file
+*.class
+
+# Log files
+*.log
+
+# Blueprints
+*.pdf
+
+# Mobile Tools
+.apk
+*.ap_
+
+# Package Files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs
+hs_err_pid*
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Avoid committing local properties
+.env
+.env.local
+
+# IDEs
+.idea/
+*.iml
+*.iws
+.classpath
+.project
+.settings/
+.springBeans
+.factorypath
+.vscode/
+*.code-workspace
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

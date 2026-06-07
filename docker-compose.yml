@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: healix-app/Dockerfile
+    container_name: healix-app-srv
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/healix_oltp?sslmode=disable
+      - SPRING_DATASOURCE_USERNAME=healix_srv
+      - SPRING_DATASOURCE_PASSWORD=healix_secure_pass
+      - SPRING_DATA_REDIS_HOST=redis-cache
+    depends_on:
+      - postgres-db
+      - redis-cache
+    restart: always
+
+  postgres-db:
+    image: postgres:16-alpine
+    container_name: healix-postgres-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=healix_oltp
+      - POSTGRES_USER=healix_srv
+      - POSTGRES_PASSWORD=healix_secure_pass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: healix-redis-cache
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    restart: always
+
+volumes:
+  pgdata:
+  redisdata:
