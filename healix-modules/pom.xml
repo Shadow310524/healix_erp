@@ -16,6 +16,7 @@
     <description>Aggregates child business modules for Modulith execution</description>
 
     <modules>
+        <module>healix-module-organization</module>
         <module>healix-module-catalog</module>
         <module>healix-module-inventory</module>
         <module>healix-module-billing</module>

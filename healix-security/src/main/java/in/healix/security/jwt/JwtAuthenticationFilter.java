@@ -45,9 +45,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 String email = claims.getSubject();
                 UUID tenantId = UUID.fromString(claims.get("tenant_id", String.class));
                 UUID userId = UUID.fromString(claims.get("user_id", String.class));
+                
+                java.util.List<?> rolesList = claims.get("roles", java.util.List.class);
+                java.util.List<org.springframework.security.core.authority.SimpleGrantedAuthority> authorities = 
+                    rolesList == null ? java.util.Collections.emptyList() :
+                    rolesList.stream()
+                        .map(role -> new org.springframework.security.core.authority.SimpleGrantedAuthority(role.toString()))
+                        .collect(java.util.stream.Collectors.toList());
 
                 HealixUserPrincipal principal = new HealixUserPrincipal(
-                        email, "", tenantId, userId, Collections.emptyList()
+                        email, "", tenantId, userId, authorities
                 );
 
                 UsernamePasswordAuthenticationToken authentication =

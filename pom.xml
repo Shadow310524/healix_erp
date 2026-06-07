@@ -21,6 +21,7 @@
         <spring-modulith.version>1.2.0</spring-modulith.version>
         <flyway.version>10.11.0</flyway.version>
         <jjwt.version>0.12.5</jjwt.version>
+        <lombok.version>1.18.32</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -74,6 +75,11 @@
             <dependency>
                 <groupId>in.healix</groupId>
                 <artifactId>healix-modules</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>in.healix</groupId>
+                <artifactId>healix-module-organization</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
