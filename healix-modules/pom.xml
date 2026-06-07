@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>in.healix</groupId>
+        <artifactId>healix-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>healix-modules</artifactId>
+    <packaging>pom</packaging>
+    <name>Healix ERP Modules Aggregator</name>
+    <description>Aggregates child business modules for Modulith execution</description>
+
+    <modules>
+        <module>healix-module-catalog</module>
+        <module>healix-module-inventory</module>
+        <module>healix-module-billing</module>
+        <module>healix-module-purchase</module>
+        <module>healix-module-ledger</module>
+        <module>healix-module-compliance</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>in.healix</groupId>
+            <artifactId>healix-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>in.healix</groupId>
+            <artifactId>healix-persistence</artifactId>
+        </dependency>
+    </dependencies>
+</project>
