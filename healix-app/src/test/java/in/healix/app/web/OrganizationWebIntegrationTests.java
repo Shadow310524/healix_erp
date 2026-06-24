@@ -43,6 +43,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Import(SecurityConfiguration.class)
 class OrganizationWebIntegrationTests {
 
+    @org.springframework.context.annotation.Configuration
+    @org.springframework.boot.autoconfigure.EnableAutoConfiguration
+    @org.springframework.context.annotation.Import({
+            BranchController.class,
+            WarehouseController.class,
+            TenantController.class,
+            UserController.class,
+            RoleController.class,
+            PermissionController.class,
+            SecurityConfiguration.class
+    })
+    static class TestConfig {}
+
     @Autowired
     private MockMvc mockMvc;
 

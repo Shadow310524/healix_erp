@@ -6,7 +6,7 @@ import org.springframework.modulith.docs.Documenter;
 
 class ModulithVerificationTests {
 
-    ApplicationModules modules = ApplicationModules.of(HealixApplication.class);
+    ApplicationModules modules = ApplicationModules.of("in.healix.modules");
 
     @Test
     void verifyModularity() {
