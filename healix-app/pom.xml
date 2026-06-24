@@ -48,6 +48,10 @@
             <groupId>in.healix</groupId>
             <artifactId>healix-module-catalog</artifactId>
         </dependency>
+        <dependency>
+            <groupId>in.healix</groupId>
+            <artifactId>healix-module-inventory</artifactId>
+        </dependency>
 
 
         <!-- Spring Boot Actuator and Prometheus Metrics -->

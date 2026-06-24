@@ -12,8 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
     "in.healix.rules",
     "in.healix.workflows",
     "in.healix.notifications",
-    "in.healix.modules",
-    "in.healix.app"
+    "in.healix.modules"
 })
 public class HealixApplication {
 
